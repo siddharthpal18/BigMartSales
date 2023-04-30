@@ -1,0 +1,5 @@
+2023-04-30 17:22:12.589489	Entered data_loader directory
+2023-04-30 17:22:12.589489	Entered get train data method.
+2023-04-30 17:22:12.610431	Task of Reading Train Data completed
+2023-04-30 17:22:12.611451	Entered get test data method.
+2023-04-30 17:22:12.623429	Task of Reading Test Data Completed

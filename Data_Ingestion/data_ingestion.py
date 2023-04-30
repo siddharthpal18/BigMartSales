@@ -1,8 +1,8 @@
 import pandas as pd
 import os
 import sys
-from src.logger import logging
-from src.exception import CustomException
+from App_Logging.logger import get_logs
+from Exception_Handling.exception import CustomException
 from dataclasses import dataclass
 
 @dataclass
@@ -16,18 +16,20 @@ class DataLoader:
 
     def __init__(self):
         #self.data_loader = DataLoader()
+        self.logger = get_logs( open("Logs//Training_dataIngestion_validation_logs.txt" , "a") )
+        self.logger.write_logs("Entered data_loader directory")
 
-        logging.info("Entered data loader directory.")
+        
 
     
 
     def get_train_data(self):
 
-        logging.info("Entered get train data method.")
+        self.logger.write_logs("Entered get train data method.")
 
         try:
             train_data = pd.read_csv('C:\BigMartSales\Data\Train.csv')
-            logging.info("Task of Reading Train Data completed") 
+            self.logger.write_logs("Task of Reading Train Data completed") 
             return train_data
         
         except Exception as e:
@@ -36,14 +38,14 @@ class DataLoader:
 
         
     def get_test_data(self):
-        logging.info("Entered get test data method.")
+        self.logger.write_logs("Entered get test data method.")
 
 
 
         try:
 
             test_data = pd.read_csv('C:\BigMartSales\Data\Test.csv')
-            logging.info("Task of Reading Test Data Completed")
+            self.logger.write_logs("Task of Reading Test Data Completed")
             return test_data
 
         
